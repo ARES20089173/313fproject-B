@@ -7,6 +7,7 @@ import UnitsPicker from './components/UnitsPicker'
 import ReloadIcon from './components/ReloadIcon'
 import { colors } from './utils/index'
 import WeatherDetails from './components/WeatherDetails'
+import LanguagePicker from './components/LanguagePicker'
 
 const WEATHER_API_KEY = 'f51934130452d9c3e07bd32cfb0f95ff'
 const BASE_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/weather?'
@@ -19,6 +20,7 @@ export default function App() {
   const [errorMessage, setErrorMessage] = useState(null)
   const [currentWeather, setCurrentWeather] = useState(null)
   const [unitSystem, setUnitSystem] = useState('metric')
+  const [language, setLanguage] = useState('en')
   const [value, onChangeText] = useState('')
   useEffect(() => {
     load()
@@ -76,6 +78,7 @@ export default function App() {
         <TextInput style={{ textAlign: 'center', backgroundColor: 'lightgrey', borderBottomLeftRadius: 5, borderBottomRightRadius: 5, borderTopRightRadius: 5, borderTopLeftRadius: 5, height: 25, width: 300, marginTop: 50, borderColor: 'gray', borderWidth: 0 }} onChangeText={text => onChangeText(text)}
           value={value} placeholder={'Enter a place...'}
           onSubmitEditing={load} />
+          <LanguagePicker language={language} setLanguage={setLanguage} />
         <View style={styles.main}>
           <UnitsPicker unitSystem={unitSystem} setUnitSystem={setUnitSystem} />
           <WeatherInfo currentWeather={currentWeather} />
@@ -83,12 +86,9 @@ export default function App() {
         </View>
         <Text style={styles.line}>──────────────────────────</Text>
         <ScrollView contentContainerStyle={styles.container}>
-          <WeatherDetails currentWeather={currentWeather} unitSystem={unitSystem} />
+          <WeatherDetails currentWeather={currentWeather} unitSystem={unitSystem} language={language}/>
         </ScrollView>
-
       </View>
-
-
     )
   } else if (errorMessage) {
     return (
