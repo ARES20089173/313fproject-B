@@ -19,15 +19,15 @@ i18n.translations = {
 		pressure: 'Pressure'
 	},
 	cn: {
-		riseTime: '日出时间',
-		setTime: '日落时间',
-		feelsLike: '裸露皮肤感觉温度',
-		maxTemp: '最高温度',
-		minTemp: '最低温度',
-		visibility: '能见度',
-		humidity: '湿度',
-		windSpeed: '风速',
-		pressure: '大气压强'
+		riseTime: '日出時間',
+		setTime: '日落時間',
+		feelsLike: '裸露皮膚感覺溫度',
+		maxTemp: '最高溫度',
+		minTemp: '最低溫度',
+		visibility: '能見度',
+		humidity: '濕度',
+		windSpeed: '風速',
+		pressure: '大氣壓強'
 	}
 };
 
